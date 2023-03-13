@@ -46,6 +46,32 @@ int	ft_max(int *t, int len)
 	return (max);
 }
 
+void	ft_sort_end_a(t_stack *s)
+{
+	int	i_min;
+
+	while (!ft_is_sort(s->a, s->len_a))
+	{
+		ft_min(s->a, s->len_a, &i_min);
+		if (ft_is_rev_sort(s->a, s->len_a))
+		{
+			ft_ra(s);
+			ft_sa(s->a, s->len_a);
+		}
+		if (i_min == 2 && ft_max(s->a, s->len_a) == s->a[1])
+			ft_rra(s);
+		if (i_min == 0 && ft_max(s->a, s->len_a) == s->a[2])
+			ft_sa(s->a, s->len_a);
+		if (i_min == 1 && ft_max(s->a, s->len_a) == s->a[0])
+			ft_ra(s);
+		if (i_min == 0 && ft_max(s->a, s->len_a) == s->a[1])
+		{
+			ft_sa(s->a, s->len_a);
+			ft_ra(s);
+		}
+	}
+}
+
 void	ft_sort(t_stack *s)
 {
 	int i;
@@ -57,31 +83,14 @@ void	ft_sort(t_stack *s)
 	while (s->len_a > 3)
 	{
 		ft_min(s->a, s->len_a, &i_min);
-		if (i_min < s->len_a / 2 && i_min != 0)
+		if (i_min <= s->len_a / 2 && i_min != 0)
 			ft_ra(s);
-		if (i_min >= s->len_a / 2 && i_min != 0)
+		if (i_min > s->len_a / 2 && i_min != 0)
 			ft_rra(s);
 		if (i_min == 0)
 			ft_pb(s);
-		if (s->len_a == 3)
-		{
-			if (!ft_is_sort(s->a, s->len_a) && ft_max(s->a, s->len_a) == s->a[s->len_a])
-			{
-				ft_sa(s->a, s->len_a);
-				break ;
-			}
-			if (!ft_is_sort(s->a, s->len_a))
-			{
-				if (ft_is_rev_sort(s->a, s->len_a))
-				{
-					ft_ra(s);
-					ft_sa(s->a, s->len_a);
-				}
-				else
-					ft_ra(s);
-			}
-		}
 	}
+	ft_sort_end_a(s);
 	while (s->len_b > 0)
 		ft_pa(s);
 }
