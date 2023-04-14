@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:48 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/12 14:09:36 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:05:03 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	main(int argc, char **argv)
 	t_stack	s;
 	char	**split;
 	int		i;
+	int		min;
+	int		i_min;
 
 	i = 0;
 	split = NULL;
@@ -111,19 +113,35 @@ int	main(int argc, char **argv)
 			exit(EXIT_FAILURE);
 		}
 	}
-
 	ft_free(split, s.len_a);
 
 /* 14 18 25 28 2 17 6 27 29 3 10 20 4 8 26 7 22 21 16 15 30 19 13 11 12 24 5 23 9 1 */
 
 	int pivot;
 	
+	pivot = ft_pivot(&s, 3);
+	ft_pre_sort(&s, pivot);
 	pivot = ft_pivot(&s, 2);
 	ft_pre_sort(&s, pivot);
 	ft_final_pre_sort(&s);
-	//ft_sort(&s);
+	ft_sort(&s);
+	min = ft_find_min(&s, &i_min);
+	while (*s.a != min)
+	{
+		if (i_min <= s.len_a / 2)
+			ft_ra(&s);
+		else
+			ft_rra(&s);
+	}
+	
 
-	i = 0;
+	
+/* 	pivot = ft_pivot(&s, 3);
+	ft_pre_sort(&s, pivot);
+	pivot = ft_pivot(&s, 2);
+	ft_pre_sort(&s, pivot); */
+	
+/* 	i = 0;
 	while (i < s.len_a)
 	{
 		printf("%d\n", s.a[i]);
@@ -135,15 +153,7 @@ int	main(int argc, char **argv)
 	{
 		printf("%d\n", s.b[i]);
 		i++;
-	}
-
-	
-/* 	pivot = ft_pivot(&s, 3);
-	ft_pre_sort(&s, pivot);
-	pivot = ft_pivot(&s, 2);
-	ft_pre_sort(&s, pivot); */
-	
-
+	} */
 
 
 

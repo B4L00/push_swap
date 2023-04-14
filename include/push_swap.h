@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/12 10:35:31 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:48:17 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ int		ft_is_rev_sort(int *t, int len);
 /* sort.c */
 
 void	ft_sort(t_stack *s);
-void	ft_min(int *t, int len, int *i_min);
-void	ft_max(int *t, int len, int *i_max);
+int		ft_is_min(int *t, int len, int n);
+int		ft_is_max(int *t, int len, int n);
+int		ft_find_min(t_stack *s, int *i_min);
 void	ft_sort_end_a(t_stack *s);
 
 /* pivot.c */
 
-int	ft_pivot(t_stack *s, int cut);
+int		ft_pivot(t_stack *s, int cut);
 
 /* pre_sort.c */
 
