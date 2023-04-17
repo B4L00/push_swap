@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/14 12:48:17 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:37:31 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,16 @@ typedef struct s_stack
 	int	*b;
 	int	len_a;
 	int	len_b;
+	int	pivot;
 }	t_stack;
+
+/* utils.c */
+
+int		ft_check(int *a, char **argv, int len);
+int		ft_lensplit(char **split);
+char	**ft_free(char **sentence, int len, t_stack *s);
+void	main_argc2(t_stack *s, char **argv, char **split);
+void	main_suite(t_stack *s, char **argv, int argc, char **split);
 
 /* swap_push.c */
 
@@ -47,13 +56,18 @@ void	ft_rrb(t_stack *s);
 int		ft_is_sort(int *t, int len);
 int		ft_is_rev_sort(int *t, int len);
 
-/* sort.c */
+/* min_max.c */
 
-void	ft_sort(t_stack *s);
 int		ft_is_min(int *t, int len, int n);
 int		ft_is_max(int *t, int len, int n);
 int		ft_find_min(t_stack *s, int *i_min);
+
+/* sort.c */
+
+void	ft_sort(t_stack *s);
 void	ft_sort_end_a(t_stack *s);
+void	ft_sort_5(t_stack *s);
+void	ft_main_sort(t_stack *s);
 
 /* pivot.c */
 
@@ -63,7 +77,5 @@ int		ft_pivot(t_stack *s, int cut);
 
 void	ft_pre_sort(t_stack *s, int pivot);
 void	ft_final_pre_sort(t_stack *s);
-
-void	ft_quick_sort(t_stack *s);
 
 #endif
