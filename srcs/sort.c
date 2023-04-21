@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:05:31 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/17 15:41:25 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:29:32 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_sort_end_a(t_stack *s)
 {
+	if (!s->a)
+		return ;
 	while (!ft_is_sort(s->a, s->len_a))
 	{
 		if (ft_is_rev_sort(s->a, s->len_a))

@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/17 14:37:31 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/21 10:24:03 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ typedef struct s_stack
 	int	pivot;
 }	t_stack;
 
+typedef struct s_count
+{
+	int	count_a;
+	int	count_b;
+	int	i;
+}	t_count;
+
 /* utils.c */
 
 int		ft_check(int *a, char **argv, int len);
 int		ft_lensplit(char **split);
-char	**ft_free(char **sentence, int len, t_stack *s);
+char	**ft_free(char **sentence, int len);
 void	main_argc2(t_stack *s, char **argv, char **split);
 void	main_suite(t_stack *s, char **argv, int argc, char **split);
 
@@ -77,5 +84,19 @@ int		ft_pivot(t_stack *s, int cut);
 
 void	ft_pre_sort(t_stack *s, int pivot);
 void	ft_final_pre_sort(t_stack *s);
+
+/* simulation.c */
+
+void	ft_simulation_rbra(t_stack *s);
+void	ft_simulation_rrbrra(t_stack *s);
+void	ft_simulation_rbrra(t_stack *s);
+void	ft_simulation_rrbra(t_stack *s);
+
+/* rota_simu.c */
+
+void	ft_simu_rb(t_stack *s_cpy);
+void	ft_simu_ra(t_stack *s_cpy);
+void	ft_simu_rra(t_stack *s_cpy);
+void	ft_simu_rrb(t_stack *s_cpy);
 
 #endif

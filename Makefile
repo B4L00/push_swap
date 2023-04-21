@@ -7,7 +7,7 @@ SRCS_D		:= srcs/
 
 LIBFT_D		:= $(SRCS_D)/libft
 
-SRCS_F		:= utils min_max is_sort sort rev_rota rotate swap_push pivot pre_sort main
+SRCS_F		:= rota_simu simulation utils min_max is_sort sort rev_rota rotate swap_push pivot pre_sort main
 
 SRCS		:= $(addprefix $(SRCS_D), $(addsuffix .c, $(SRCS_F)))
 OBJ			:= $(addprefix $(SRCS_D), $(addsuffix .o, $(SRCS_F)))

@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/17 13:46:00 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:21:07 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_check(int *a, char **argv, int len)
 	return (1);
 }
 
-char	**ft_free(char **sentence, int len, t_stack *s)
+char	**ft_free(char **sentence, int len)
 {
 	int	i;
 
@@ -50,8 +50,8 @@ char	**ft_free(char **sentence, int len, t_stack *s)
 		i++;
 	}
 	free(sentence);
-	free(s->a);
-	free(s->b);
+/* 	free(s->a);
+	free(s->b); */
 	return (NULL);
 }
 
@@ -74,6 +74,11 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	s->len_a = ft_lensplit(split);
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
+	if (!s->a || !s->b)
+	{
+		ft_free(split, s->len_a);
+		exit(EXIT_FAILURE);
+	}
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)split[i]);
@@ -82,9 +87,22 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	if (!ft_check(s->a, split, s->len_a))
 	{	
 		ft_printf("Error\n");
-		ft_free(split, s->len_a, s);
+		ft_free(split, s->len_a);
 		exit(EXIT_FAILURE);
 	}
+	if (ft_is_sort(s->a, s->len_a))
+		return ;
+	else if (s->len_a == 3)
+	{
+		ft_sort_end_a(s);
+		free(s->a);
+		free(s->b);
+		return ;
+	}
+	ft_final_pre_sort(s);
+	ft_simulation_rbra(s);
+	free(s->a);
+	free(s->b);
 }
 
 void	main_suite(t_stack *s, char **argv, int argc, char **split)
@@ -98,12 +116,29 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)argv[i + 1]);
+		s->b[i] = 0;
 		i++;
 	}
 	if (!ft_check(s->a, argv + 1, s->len_a))
 	{
 		ft_printf("Error\n");
-		ft_free(split, s->len_a, s);
+		ft_free(split, s->len_a);
 		exit(EXIT_FAILURE);
 	}
+	if (ft_is_sort(s->a, s->len_a))
+		return ;
+	else if (s->len_a == 3)
+	{
+		ft_sort_end_a(s);
+		free(s->a);
+		free(s->b);
+		return ;
+	}
+	ft_final_pre_sort(s);
+	ft_simulation_rbra(s);
+	ft_simulation_rrbrra(s);
+	ft_simulation_rbrra(s);
+	ft_simulation_rrbra(s);
+	free(s->a);
+	free(s->b);
 }
