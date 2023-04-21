@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:44 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 15:28:09 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:12:25 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ t_count	*ft_simu_rbra(t_stack *s)
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
 	}
+	tc[0].i = c.i;
 	return (tc);
 }
 
@@ -177,6 +178,7 @@ t_count	*ft_simu_rrbrra(t_stack *s)
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
 	}
+	tc[0].i = c.i;
 	return (tc);
 }
 
@@ -225,6 +227,7 @@ t_count	*ft_simu_rbrra(t_stack *s)
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
 	}
+	tc[0].i = c.i;
 	return (tc);
 }
 
@@ -273,16 +276,50 @@ t_count	*ft_simu_rrbra(t_stack *s)
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
 	}
+	tc[0].i = c.i;
 	return (tc);
+}
+
+int	ft_cpt_rr(t_count *tcr, int i)
+{
+	int	cpt;
+	
+	cpt = 0;
+	while (tcr[i].count_a > 0 && tcr[i].count_b > 0)
+	{
+		cpt++;
+		tcr[i].count_a--;
+		tcr[i].count_b--;
+	}
+	if (tcr[i].count_a > 0)
+		cpt += tcr[i].count_a;
+	else 
+		cpt += tcr[i].count_b;
+	return (cpt);
 }
 
 void	ft_simulation_rbra(t_stack *s)
 {
 	t_stack	s_cpy;
 	t_count	*tcr;
+	int		i;
+	int		cptr_i;
+	int		cptr;
 
 	s_cpy = ft_init_simu(s);
 	tcr = ft_simu_rbra(&s_cpy);
+	i = 0;
+	cptr_i = 0;
+	cptr = tcr[i].count_a + tcr[i].count_b;
+	while(i < tcr[0].i)
+	{
+		if (ft_cpt_rr(tcr, i) < cptr)
+		{
+			cptr = ft_cpt_rr(tcr, i);
+			cptr_i = i;
+		}
+		i++;
+	}
 	ft_free_simu(&s_cpy, tcr);
 }
 
