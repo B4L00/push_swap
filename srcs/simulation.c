@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:44 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 16:12:25 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/24 17:17:11 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,22 @@ t_count	*ft_simu_rbra(t_stack *s)
 		c.count_b = 0;
 		while (i < s->len_b)
 		{
+/* 			if ((*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (ft_is_max(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (ft_is_min(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (*s->b < *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b < *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))) */
 			if ((*s->b < *s->a && *s->b < *(s->a + 1)
 					&& *s->b > *(s->a + s->len_a - 1))
 				|| (*s->b < *s->a && *s->b > *(s->a + 1)
@@ -123,12 +139,12 @@ t_count	*ft_simu_rbra(t_stack *s)
 		ft_simu_ra(s);
 		j++;
 	}
-	i = 0;
+/*  	i = 0;
 	while (i < c.i)
 	{
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
-	}
+	} */
 	tc[0].i = c.i;
 	return (tc);
 }
@@ -150,6 +166,22 @@ t_count	*ft_simu_rrbrra(t_stack *s)
 		c.count_b = 0;
 		while (i < s->len_b)
 		{
+			/* if ((*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (ft_is_max(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (ft_is_min(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (*s->b < *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b < *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))) */
 			if ((*s->b < *s->a && *s->b < *(s->a + 1)
 					&& *s->b > *(s->a + s->len_a - 1))
 				|| (*s->b < *s->a && *s->b > *(s->a + 1)
@@ -172,12 +204,12 @@ t_count	*ft_simu_rrbrra(t_stack *s)
 		ft_simu_rra(s);
 		j++;
 	}
-	i = 0;
+/* 	i = 0;
 	while (i < c.i)
 	{
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
-	}
+	} */
 	tc[0].i = c.i;
 	return (tc);
 }
@@ -199,6 +231,22 @@ t_count	*ft_simu_rbrra(t_stack *s)
 		c.count_b = 0;
 		while (i < s->len_b)
 		{
+			/* if ((*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (ft_is_max(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (ft_is_min(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (*s->b < *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b < *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))) */
 			if ((*s->b < *s->a && *s->b < *(s->a + 1)
 					&& *s->b > *(s->a + s->len_a - 1))
 				|| (*s->b < *s->a && *s->b > *(s->a + 1)
@@ -221,12 +269,12 @@ t_count	*ft_simu_rbrra(t_stack *s)
 		ft_simu_rra(s);
 		j++;
 	}
-	i = 0;
+/* 	i = 0;
 	while (i < c.i)
 	{
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
-	}
+	} */
 	tc[0].i = c.i;
 	return (tc);
 }
@@ -248,6 +296,22 @@ t_count	*ft_simu_rrbra(t_stack *s)
 		c.count_b = 0;
 		while (i < s->len_b)
 		{
+			/* if ((*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b > *(s->a + s->len_a - 1))
+				|| (ft_is_max(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (ft_is_min(s->a, s->len_a, *s->b)
+					&& !ft_is_min(s->a, s->len_a, *s->a))
+				|| (*s->b < *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b < *s->a && *s->b > *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))
+				|| (*s->b > *s->a && *s->b < *(s->a + 1)
+					&& *s->b < *(s->a + s->len_a - 1))) */
 			if ((*s->b < *s->a && *s->b < *(s->a + 1)
 					&& *s->b > *(s->a + s->len_a - 1))
 				|| (*s->b < *s->a && *s->b > *(s->a + 1)
@@ -270,12 +334,12 @@ t_count	*ft_simu_rrbra(t_stack *s)
 		ft_simu_ra(s);
 		j++;
 	}
-	i = 0;
+/* 	i = 0;
 	while (i < c.i)
 	{
 		printf("i = %d, count_a : %d, count_b : %d\n", i, tc[i].count_a, tc[i].count_b);
 		i++;
-	}
+	} */
 	tc[0].i = c.i;
 	return (tc);
 }
@@ -283,8 +347,12 @@ t_count	*ft_simu_rrbra(t_stack *s)
 int	ft_cpt_rr(t_count *tcr, int i)
 {
 	int	cpt;
+	int count_a_tmp;
+	int	count_b_tmp;
 	
 	cpt = 0;
+	count_a_tmp = tcr[i].count_a;
+	count_b_tmp = tcr[i].count_b;
 	while (tcr[i].count_a > 0 && tcr[i].count_b > 0)
 	{
 		cpt++;
@@ -295,10 +363,121 @@ int	ft_cpt_rr(t_count *tcr, int i)
 		cpt += tcr[i].count_a;
 	else 
 		cpt += tcr[i].count_b;
+	tcr[i].count_a = count_a_tmp;
+	tcr[i].count_b = count_b_tmp;
 	return (cpt);
 }
 
-void	ft_simulation_rbra(t_stack *s)
+void	ft_decision(t_stack *s)
+{
+	t_count	*c_r;
+	t_count	*c_rr;
+	t_count	*c_rarrb;
+	t_count	*c_rrarb;
+	
+	c_r = ft_simulation_rbra(s);
+	c_rr = ft_simulation_rrbrra(s);
+	c_rarrb = ft_simulation_rrbra(s);
+	c_rrarb = ft_simulation_rbrra(s);
+
+/* 	int i = 0;
+	while (i < s->len_a)
+	{
+		printf("%d\n", s->a[i]);
+		i++;
+	}
+	printf("\n\n");
+	i = 0;
+	while (i < s->len_b)
+	{
+		printf("%d\n", s->b[i]);
+		i++;
+	} */
+
+	//printf("%d, %d, %d, %d\n", c_r->cpt, c_rr->cpt, c_rarrb->cpt, c_rrarb->cpt);
+	printf("%d\n", s->len_a);
+	if (c_r->cpt <= c_rr->cpt && c_r->cpt <= c_rarrb->cpt
+		&& c_r->cpt <= c_rrarb->cpt)
+	{
+		while (c_r[c_r->i].count_a > 0 && c_r[c_r->i].count_b > 0)
+		{
+			ft_rr(s);
+			c_r[c_r->i].count_a--;
+			c_r[c_r->i].count_b--;
+		}
+		while (c_r[c_r->i].count_a > 0)
+		{
+			ft_ra(s);
+			c_r[c_r->i].count_a--;
+		}
+		while (c_r[c_r->i].count_b > 0)
+		{
+			ft_rb(s);
+			c_r[c_r->i].count_b--;
+		}
+	}
+	else if (c_rr->cpt <= c_r->cpt && c_rr->cpt <= c_rarrb->cpt
+		&& c_rr->cpt <= c_rrarb->cpt)
+	{
+		while (c_rr[c_rr->i].count_a > 0 && c_rr[c_rr->i].count_b > 0)
+		{
+			ft_rrr(s);
+			c_rr[c_rr->i].count_a--;
+			c_rr[c_rr->i].count_b--;
+		}
+		while (c_rr[c_rr->i].count_a > 0)
+		{
+			ft_rra(s);
+			c_rr[c_rr->i].count_a--;
+		}
+		while (c_rr[c_rr->i].count_b > 0)
+		{
+			ft_rrb(s);
+			c_rr[c_rr->i].count_b--;
+		}
+	}
+	else if (c_rarrb->cpt <= c_r->cpt && c_rarrb->cpt <= c_rr->cpt
+		&& c_rarrb->cpt <= c_rrarb->cpt)
+	{
+		while (c_rarrb[c_rarrb->i].count_a > 0)
+		{
+			ft_ra(s);
+			c_rarrb[c_rarrb->i].count_a--;
+		}
+		while (c_rarrb[c_rarrb->i].count_b > 0)
+		{
+			ft_rrb(s);
+			c_rarrb[c_rarrb->i].count_b--;
+		}
+	}
+	else if (c_rrarb->cpt <= c_r->cpt && c_rrarb->cpt <= c_rr->cpt
+		&& c_rrarb->cpt <= c_rarrb->cpt)
+	{
+		while (c_rrarb[c_rrarb->i].count_a > 0)
+		{
+			ft_rra(s);
+			c_rrarb[c_rrarb->i].count_a--;
+		}
+		while (c_rrarb[c_rrarb->i].count_b > 0)
+		{
+			ft_rb(s);
+			c_rrarb[c_rrarb->i].count_b--;
+		}
+	}
+	if ((c_r[c_r->i].count_a == 0 && c_r[c_r->i].count_b == 0)
+		|| (c_rr[c_rr->i].count_a == 0 && c_rr[c_rr->i].count_b == 0)
+		|| (c_rrarb[c_rrarb->i].count_a == 0
+			&& c_rrarb[c_rrarb->i].count_b == 0)
+		|| (c_rarrb[c_rarrb->i].count_a == 0
+			&& c_rarrb[c_rarrb->i].count_b == 0))
+		ft_pa(s);
+	free(c_r);
+	free(c_rr);
+	free(c_rarrb);
+	free(c_rrarb);
+}
+
+t_count	*ft_simulation_rbra(t_stack *s)
 {
 	t_stack	s_cpy;
 	t_count	*tcr;
@@ -311,7 +490,7 @@ void	ft_simulation_rbra(t_stack *s)
 	i = 0;
 	cptr_i = 0;
 	cptr = tcr[i].count_a + tcr[i].count_b;
-	while(i < tcr[0].i)
+	while (i < tcr[0].i)
 	{
 		if (ft_cpt_rr(tcr, i) < cptr)
 		{
@@ -320,35 +499,96 @@ void	ft_simulation_rbra(t_stack *s)
 		}
 		i++;
 	}
-	ft_free_simu(&s_cpy, tcr);
+	tcr->i = cptr_i;
+	tcr->cpt = cptr;
+	free(s_cpy.a);
+	free(s_cpy.b);
+	return (tcr);
 }
 
-void	ft_simulation_rrbrra(t_stack *s)
+t_count	*ft_simulation_rrbrra(t_stack *s)
 {
 	t_stack	s_cpy;
 	t_count	*tcr;
+	int		i;
+	int		cptr_i;
+	int		cptr;
 
 	s_cpy = ft_init_simu(s);
 	tcr = ft_simu_rrbrra(&s_cpy);
-	ft_free_simu(&s_cpy, tcr);
+	i = 0;
+	cptr_i = 0;
+	cptr = tcr[i].count_a + tcr[i].count_b;
+	while (i < tcr[0].i)
+	{
+		if (ft_cpt_rr(tcr, i) < cptr)
+		{
+			cptr = ft_cpt_rr(tcr, i);
+			cptr_i = i;
+		}
+		i++;
+	}
+	tcr->i = cptr_i;
+	tcr->cpt = cptr;
+	free(s_cpy.a);
+	free(s_cpy.b);
+	return (tcr);
 }
 
-void	ft_simulation_rbrra(t_stack *s)
+t_count	*ft_simulation_rbrra(t_stack *s)
 {
 	t_stack	s_cpy;
 	t_count	*tcr;
+	int		i;
+	int		cptr_i;
+	int		cptr;
 
 	s_cpy = ft_init_simu(s);
 	tcr = ft_simu_rbrra(&s_cpy);
-	ft_free_simu(&s_cpy, tcr);
+	i = 0;
+	cptr_i = 0;
+	cptr = tcr[i].count_a + tcr[i].count_b;
+	while (i < tcr[0].i)
+	{
+		if (tcr[i].count_a + tcr[i].count_b < cptr)
+		{
+			cptr = tcr[i].count_a + tcr[i].count_b;
+			cptr_i = i;
+		}
+		i++;
+	}
+	tcr->i = cptr_i;
+	tcr->cpt = cptr;
+	free(s_cpy.a);
+	free(s_cpy.b);
+	return (tcr);
 }
 
-void	ft_simulation_rrbra(t_stack *s)
+t_count	*ft_simulation_rrbra(t_stack *s)
 {
 	t_stack	s_cpy;
 	t_count	*tcr;
+	int		i;
+	int		cptr_i;
+	int		cptr;
 
 	s_cpy = ft_init_simu(s);
 	tcr = ft_simu_rrbra(&s_cpy);
-	ft_free_simu(&s_cpy, tcr);
+	i = 0;
+	cptr_i = 0;
+	cptr = tcr[i].count_a + tcr[i].count_b;
+	while (i < tcr[0].i)
+	{
+		if (tcr[i].count_a + tcr[i].count_b < cptr)
+		{
+			cptr = tcr[i].count_a + tcr[i].count_b;
+			cptr_i = i;
+		}
+		i++;
+	}
+	tcr->i = cptr_i;
+	tcr->cpt = cptr;
+	free(s_cpy.a);
+	free(s_cpy.b);
+	return (tcr);
 }

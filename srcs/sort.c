@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:05:31 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 13:29:32 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:57:25 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,14 +111,16 @@ void	ft_main_sort(t_stack *s)
 	int	min;
 	int	i_min;
 
-	i = 10;
+	i = 5;
 	while (i > 0)
 	{
 		s->pivot = ft_pivot(s, i--);
 		ft_pre_sort(s, s->pivot);
 	}
 	ft_final_pre_sort(s);
-	ft_sort(s);
+	while (s->len_b > 0)
+		ft_decision(s);
+	//ft_sort(s);
 	min = ft_find_min(s, &i_min);
 	while (*s->a != min)
 	{
@@ -126,5 +128,5 @@ void	ft_main_sort(t_stack *s)
 			ft_ra(s);
 		else
 			ft_rra(s);
-	}	
+	}
 }

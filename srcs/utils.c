@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 15:21:07 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:47:14 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,10 +99,6 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 		free(s->b);
 		return ;
 	}
-	ft_final_pre_sort(s);
-	ft_simulation_rbra(s);
-	free(s->a);
-	free(s->b);
 }
 
 void	main_suite(t_stack *s, char **argv, int argc, char **split)
@@ -134,11 +130,4 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 		free(s->b);
 		return ;
 	}
-	ft_final_pre_sort(s);
-	ft_simulation_rbra(s);
-	ft_simulation_rrbrra(s);
-	ft_simulation_rbrra(s);
-	ft_simulation_rrbra(s);
-	free(s->a);
-	free(s->b);
 }

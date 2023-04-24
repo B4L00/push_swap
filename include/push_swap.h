@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 10:24:03 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/24 10:01:56 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,20 @@ typedef struct s_count
 	int	count_a;
 	int	count_b;
 	int	i;
+	int cpt;
 }	t_count;
+
+typedef struct s_simu
+{
+	int	rarb;
+	int	i_rarb;
+	int	rrarrb;
+	int	i_rrarrb;
+	int	rarrb;
+	int	i_rarrb;
+	int	rrarb;
+	int	i_rrarb;
+}	t_simu;
 
 /* utils.c */
 
@@ -57,6 +70,7 @@ void	ft_rr(t_stack *s);
 
 void	ft_rra(t_stack *s);
 void	ft_rrb(t_stack *s);
+void	ft_rrr(t_stack *s);
 
 /* is_sort.c */
 
@@ -87,10 +101,11 @@ void	ft_final_pre_sort(t_stack *s);
 
 /* simulation.c */
 
-void	ft_simulation_rbra(t_stack *s);
-void	ft_simulation_rrbrra(t_stack *s);
-void	ft_simulation_rbrra(t_stack *s);
-void	ft_simulation_rrbra(t_stack *s);
+t_count	*ft_simulation_rbra(t_stack *s);
+t_count	*ft_simulation_rrbrra(t_stack *s);
+t_count	*ft_simulation_rbrra(t_stack *s);
+t_count	*ft_simulation_rrbra(t_stack *s);
+void	ft_decision(t_stack *s);
 
 /* rota_simu.c */
 
