@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:39 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/21 13:55:31 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:07:53 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	ft_is_sort(int *t, int len)
 	int	j;
 
 	i = 0;
-	if (!t)
-		return (0);
-	while (i + 1< len)
+	while (i + 1 < len)
 	{
 		j = i + 1;
 		while (j < len)
@@ -40,8 +38,6 @@ int	ft_is_rev_sort(int *t, int len)
 	int	j;
 
 	i = 0;
-	if (!t)
-		return (0);
 	while (i + 1 < len)
 	{
 		j = i + 1;

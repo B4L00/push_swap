@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/24 15:47:14 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:52:31 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ int	ft_check(int *a, char **argv, int len)
 	{
 		s = ft_itoa(a[i]);
 		if (ft_strncmp(s, argv[i], ft_strlen(argv[i])))
+		{
+			free(s);
 			return (0);
+		}
 		j = i + 1;
 		free(s);
 		while (j < len)
@@ -37,22 +40,25 @@ int	ft_check(int *a, char **argv, int len)
 	return (1);
 }
 
-char	**ft_free(char **sentence, int len)
+void	ft_free(char **sentence, int len, t_stack *s)
 {
 	int	i;
 
 	i = 0;
-	if (!sentence)
-		return (NULL);
-	while (i < len)
+	if (sentence)
 	{
-		free(sentence[i]);
-		i++;
+		while (i < len)
+		{
+			free(sentence[i]);
+			i++;
+		}
+		free(sentence);
 	}
-	free(sentence);
-/* 	free(s->a);
-	free(s->b); */
-	return (NULL);
+	if (s->a)
+		free(s->a);
+	if (s->b)
+		free(s->b);
+	exit(EXIT_FAILURE);
 }
 
 int	ft_lensplit(char **split)
@@ -71,14 +77,15 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 
 	i = 0;
 	split = ft_split(argv[1], ' ');
+	s->a = NULL;
+	s->b = NULL;
+	if (!split)
+		ft_free(split, s->len_a, s);
 	s->len_a = ft_lensplit(split);
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
 	if (!s->a || !s->b)
-	{
-		ft_free(split, s->len_a);
-		exit(EXIT_FAILURE);
-	}
+		ft_free(split, s->len_a, s);
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)split[i]);
@@ -87,17 +94,7 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	if (!ft_check(s->a, split, s->len_a))
 	{	
 		ft_printf("Error\n");
-		ft_free(split, s->len_a);
-		exit(EXIT_FAILURE);
-	}
-	if (ft_is_sort(s->a, s->len_a))
-		return ;
-	else if (s->len_a == 3)
-	{
-		ft_sort_end_a(s);
-		free(s->a);
-		free(s->b);
-		return ;
+		ft_free(split, s->len_a, s);
 	}
 }
 
@@ -109,6 +106,8 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 	s->len_a = argc - 1;
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
+	if (!s->a || !s->b)
+		ft_free(split, s->len_a, s);
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)argv[i + 1]);
@@ -118,16 +117,6 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 	if (!ft_check(s->a, argv + 1, s->len_a))
 	{
 		ft_printf("Error\n");
-		ft_free(split, s->len_a);
-		exit(EXIT_FAILURE);
-	}
-	if (ft_is_sort(s->a, s->len_a))
-		return ;
-	else if (s->len_a == 3)
-	{
-		ft_sort_end_a(s);
-		free(s->a);
-		free(s->b);
-		return ;
+		ft_free(split, s->len_a, s);
 	}
 }

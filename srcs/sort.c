@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:05:31 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/24 14:57:25 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:06:10 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	ft_sort_end_a(t_stack *s)
 {
-	if (!s->a)
-		return ;
 	while (!ft_is_sort(s->a, s->len_a))
 	{
 		if (ft_is_rev_sort(s->a, s->len_a))
@@ -111,7 +109,7 @@ void	ft_main_sort(t_stack *s)
 	int	min;
 	int	i_min;
 
-	i = 5;
+	i = 2;
 	while (i > 0)
 	{
 		s->pivot = ft_pivot(s, i--);
@@ -120,7 +118,6 @@ void	ft_main_sort(t_stack *s)
 	ft_final_pre_sort(s);
 	while (s->len_b > 0)
 		ft_decision(s);
-	//ft_sort(s);
 	min = ft_find_min(s, &i_min);
 	while (*s->a != min)
 	{

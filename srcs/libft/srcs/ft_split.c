@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larmenou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 08:47:23 by larmenou          #+#    #+#             */
-/*   Updated: 2022/11/11 08:47:24 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:37:37 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,3 @@ char	**ft_split(char const *s, char c)
 	sentence[i] = 0;
 	return (sentence);
 }
-
-/*
-#include <stdio.h>
-int main()
-{
-	char **tab;
-	tab = ft_split("    Bonjour    tout le monde    ", 'o');
-	int i = 0;
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	return 0;
-}
-*/
