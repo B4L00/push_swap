@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 13:11:23 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/25 14:30:59 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:24:13 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_count	*ft_simulation_rbra(t_stack *s)
 	int		cptr;
 
 	s_cpy = ft_init_simu(s);
-	tcr = ft_simu_rbra(&s_cpy);
+	tcr = ft_simu_rbra(&s_cpy, s);
 	i = 0;
 	cptr_i = 0;
 	cptr = tcr[i].count_a + tcr[i].count_b;
@@ -36,8 +36,7 @@ t_count	*ft_simulation_rbra(t_stack *s)
 	}
 	tcr->i = cptr_i;
 	tcr->cpt = cptr;
-	free(s_cpy.a);
-	free(s_cpy.b);
+	ft_free_simu_s(&s_cpy);
 	return (tcr);
 }
 
@@ -50,7 +49,7 @@ t_count	*ft_simulation_rrbrra(t_stack *s)
 	int		cptr;
 
 	s_cpy = ft_init_simu(s);
-	tcr = ft_simu_rrbrra(&s_cpy);
+	tcr = ft_simu_rrbrra(&s_cpy, s);
 	i = 0;
 	cptr_i = 0;
 	cptr = tcr[i].count_a + tcr[i].count_b;
@@ -65,8 +64,7 @@ t_count	*ft_simulation_rrbrra(t_stack *s)
 	}
 	tcr->i = cptr_i;
 	tcr->cpt = cptr;
-	free(s_cpy.a);
-	free(s_cpy.b);
+	ft_free_simu_s(&s_cpy);
 	return (tcr);
 }
 
@@ -79,7 +77,7 @@ t_count	*ft_simulation_rbrra(t_stack *s)
 	int		cptr;
 
 	s_cpy = ft_init_simu(s);
-	tcr = ft_simu_rbrra(&s_cpy);
+	tcr = ft_simu_rbrra(&s_cpy, s);
 	i = 0;
 	cptr_i = 0;
 	cptr = tcr[i].count_a + tcr[i].count_b;
@@ -94,8 +92,7 @@ t_count	*ft_simulation_rbrra(t_stack *s)
 	}
 	tcr->i = cptr_i;
 	tcr->cpt = cptr;
-	free(s_cpy.a);
-	free(s_cpy.b);
+	ft_free_simu_s(&s_cpy);
 	return (tcr);
 }
 
@@ -108,7 +105,7 @@ t_count	*ft_simulation_rrbra(t_stack *s)
 	int		cptr;
 
 	s_cpy = ft_init_simu(s);
-	tcr = ft_simu_rrbra(&s_cpy);
+	tcr = ft_simu_rrbra(&s_cpy, s);
 	i = 0;
 	cptr_i = 0;
 	cptr = tcr[i].count_a + tcr[i].count_b;
@@ -123,7 +120,6 @@ t_count	*ft_simulation_rrbra(t_stack *s)
 	}
 	tcr->i = cptr_i;
 	tcr->cpt = cptr;
-	free(s_cpy.a);
-	free(s_cpy.b);
+	ft_free_simu_s(&s_cpy);
 	return (tcr);
 }

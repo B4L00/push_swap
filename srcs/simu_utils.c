@@ -6,18 +6,11 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 12:49:21 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/25 13:12:18 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:34:40 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	ft_free_simu(t_stack *s_cpy, t_count *c)
-{
-	free(c);
-	free(s_cpy->a);
-	free(s_cpy->b);
-}
 
 t_stack	ft_scpy(t_stack *old, t_stack new)
 {
@@ -48,15 +41,10 @@ t_stack	ft_init_simu(t_stack *s)
 		exit(EXIT_FAILURE);
 	s_cpy.a = malloc(sizeof(int) * s->len_a);
 	s_cpy.b = malloc(sizeof(int) * s->len_b);
-	if (!s_cpy.a)
+	if (!s_cpy.a || !s_cpy.b)
 	{
-		free(s_cpy.b);
-		exit(EXIT_FAILURE);
-	}
-	if (!s_cpy.b)
-	{
-		free(s_cpy.a);
-		exit(EXIT_FAILURE);
+		ft_free_s(&s_cpy, 0);
+		ft_free_s(s, 1);
 	}
 	s_cpy = ft_scpy(s, s_cpy);
 	return (s_cpy);

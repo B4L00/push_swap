@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/25 15:52:31 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:37:35 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_check(int *a, char **argv, int len)
 	while (i < len)
 	{
 		s = ft_itoa(a[i]);
-		if (ft_strncmp(s, argv[i], ft_strlen(argv[i])))
+		if (!ft_strnstr(argv[i], s, ft_strlen(argv[i])))
 		{
 			free(s);
 			return (0);
@@ -38,27 +38,6 @@ int	ft_check(int *a, char **argv, int len)
 		i++;
 	}
 	return (1);
-}
-
-void	ft_free(char **sentence, int len, t_stack *s)
-{
-	int	i;
-
-	i = 0;
-	if (sentence)
-	{
-		while (i < len)
-		{
-			free(sentence[i]);
-			i++;
-		}
-		free(sentence);
-	}
-	if (s->a)
-		free(s->a);
-	if (s->b)
-		free(s->b);
-	exit(EXIT_FAILURE);
 }
 
 int	ft_lensplit(char **split)
@@ -80,12 +59,12 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	s->a = NULL;
 	s->b = NULL;
 	if (!split)
-		ft_free(split, s->len_a, s);
+		exit(EXIT_FAILURE);
 	s->len_a = ft_lensplit(split);
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
 	if (!s->a || !s->b)
-		ft_free(split, s->len_a, s);
+		ft_free_s(s, 1);
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)split[i]);
@@ -93,12 +72,14 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	}
 	if (!ft_check(s->a, split, s->len_a))
 	{	
-		ft_printf("Error\n");
-		ft_free(split, s->len_a, s);
+		ft_putstr_fd("Error\n", 1);
+		ft_free_split(split);
+		ft_free_s(s, 1);
 	}
+	ft_free_split(split);
 }
 
-void	main_suite(t_stack *s, char **argv, int argc, char **split)
+void	main_suite(t_stack *s, char **argv, int argc)
 {
 	int	i;
 
@@ -107,7 +88,7 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
 	if (!s->a || !s->b)
-		ft_free(split, s->len_a, s);
+		ft_free_s(s, 1);
 	while (i < s->len_a)
 	{
 		s->a[i] = ft_atoi((const char *)argv[i + 1]);
@@ -116,7 +97,7 @@ void	main_suite(t_stack *s, char **argv, int argc, char **split)
 	}
 	if (!ft_check(s->a, argv + 1, s->len_a))
 	{
-		ft_printf("Error\n");
-		ft_free(split, s->len_a, s);
+		ft_putstr_fd("Error\n", 1);
+		ft_free_s(s, 1);
 	}
 }

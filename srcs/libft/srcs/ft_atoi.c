@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: larmenou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:24:01 by larmenou          #+#    #+#             */
-/*   Updated: 2022/11/08 14:24:04 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:13:14 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	ft_atoi(const char *nptr)
 	return (result);
 }
 
-/*
+/* 
 #include <stdio.h>
 
 int main()
 {
-	printf("ft_atoi : %d\n", ft_atoi("-2147483648"));
-	printf("atoi : %d\n", atoi("-2147483648"));
+	printf("ft_atoi : %d\n", ft_atoi("0003"));
+	printf("atoi : %d\n", atoi("0003"));
 	return (0);
 }
-*/
+ */

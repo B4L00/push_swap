@@ -6,24 +6,11 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 08:31:44 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/25 16:27:13 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 11:49:58 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-void	ft_free_decision(t_count *c_r, t_count *c_rr, t_count *c_rarrb,
-	t_count *c_rrarb)
-{
-	if (c_r)
-		free(c_r);
-	if (c_rr)
-		free(c_rr);
-	if (c_rarrb)
-		free(c_rarrb);
-	if (c_rrarb)
-		free(c_rrarb);
-}
 
 void	ft_decision_suite(t_stack *s, t_count **tc)
 {
@@ -47,7 +34,7 @@ void	ft_decision(t_stack *s)
 	if (!tc[0] || !tc[1] || !tc[2] || !tc[3])
 	{
 		ft_free_decision(tc[0], tc[1], tc[2], tc[3]);
-		exit(EXIT_FAILURE);
+		ft_free_s(s, 1);
 	}
 	if (tc[0]->cpt <= tc[1]->cpt && tc[0]->cpt <= tc[2]->cpt
 		&& tc[0]->cpt <= tc[3]->cpt)

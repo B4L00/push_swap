@@ -6,13 +6,13 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 11:42:24 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/25 14:36:48 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:35:25 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_count	*ft_simu_rbra(t_stack *s)
+t_count	*ft_simu_rbra(t_stack *s, t_stack *real)
 {
 	int		i;
 	int		j;
@@ -20,6 +20,8 @@ t_count	*ft_simu_rbra(t_stack *s)
 	t_count	c;
 
 	tc = malloc(sizeof(t_count) * (s->len_a * s->len_b));
+	if (!tc)
+		ft_free_simu_exit(s, real);
 	j = 0;
 	c.i = 0;
 	c.count_a = 0;
@@ -37,7 +39,7 @@ t_count	*ft_simu_rbra(t_stack *s)
 	return (tc);
 }
 
-t_count	*ft_simu_rrbrra(t_stack *s)
+t_count	*ft_simu_rrbrra(t_stack *s, t_stack *real)
 {
 	int		i;
 	int		j;
@@ -45,6 +47,8 @@ t_count	*ft_simu_rrbrra(t_stack *s)
 	t_count	c;
 
 	tc = malloc(sizeof(t_count) * (s->len_a * s->len_b));
+	if (!tc)
+		ft_free_simu_exit(s, real);
 	j = 0;
 	c.i = 0;
 	c.count_a = 0;
@@ -62,7 +66,7 @@ t_count	*ft_simu_rrbrra(t_stack *s)
 	return (tc);
 }
 
-t_count	*ft_simu_rbrra(t_stack *s)
+t_count	*ft_simu_rbrra(t_stack *s, t_stack *real)
 {
 	int		i;
 	int		j;
@@ -70,6 +74,8 @@ t_count	*ft_simu_rbrra(t_stack *s)
 	t_count	c;
 
 	tc = malloc(sizeof(t_count) * (s->len_a * s->len_b));
+	if (!tc)
+		ft_free_simu_exit(s, real);
 	j = 0;
 	c.i = 0;
 	c.count_a = 0;
@@ -87,7 +93,7 @@ t_count	*ft_simu_rbrra(t_stack *s)
 	return (tc);
 }
 
-t_count	*ft_simu_rrbra(t_stack *s)
+t_count	*ft_simu_rrbra(t_stack *s, t_stack *real)
 {
 	int		i;
 	int		j;
@@ -95,6 +101,8 @@ t_count	*ft_simu_rrbra(t_stack *s)
 	t_count	c;
 
 	tc = malloc(sizeof(t_count) * (s->len_a * s->len_b));
+	if (!tc)
+		ft_free_simu_exit(s, real);
 	j = 0;
 	c.i = 0;
 	c.count_a = 0;
