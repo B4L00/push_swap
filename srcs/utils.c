@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/27 13:41:34 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:22:09 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 	s->a = malloc(sizeof(int) * (s->len_a));
 	s->b = malloc(sizeof(int) * (s->len_a));
 	if (!s->a || !s->b)
-		ft_free_s(s, 1);
+		ft_free_split(split, s);
 	while (i < s->len_a)
 	{
 		if (!ft_check_digit(split[i]))

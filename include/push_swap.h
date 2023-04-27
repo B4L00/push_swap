@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/27 13:40:40 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:43:14 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,6 @@ typedef struct s_count
 	int	i;
 	int	cpt;
 }	t_count;
-
-typedef struct s_simu
-{
-	int	rarb;
-	int	i_rarb;
-	int	rrarrb;
-	int	i_rrarrb;
-	int	rarrb;
-	int	i_rarrb;
-	int	rrarb;
-	int	i_rrarb;
-}	t_simu;
 
 /* utils.c */
 
