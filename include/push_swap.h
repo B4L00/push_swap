@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 09:04:54 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/26 13:53:37 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:40:40 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,13 @@ int		ft_lensplit(char **split);
 void	main_argc2(t_stack *s, char **argv, char **split);
 void	main_suite(t_stack *s, char **argv, int argc);
 
+/* check_utils.c */
+
+int		ft_check_utils(char *s, char **argv, int i);
+
 /* free_utils.c */
 
-void	ft_free_split(char **sentence);
+void	ft_free_split(char **sentence, t_stack *s);
 void	ft_free_s(t_stack *s, int fail);
 void	ft_free_decision(t_count *c_r, t_count *c_rr, t_count *c_rarrb,
 			t_count *c_rrarb);

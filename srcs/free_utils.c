@@ -6,13 +6,13 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 08:43:13 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/26 14:39:56 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 09:30:29 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_free_split(char **sentence)
+void	ft_free_split(char **sentence, t_stack *s)
 {
 	int	i;
 
@@ -23,6 +23,8 @@ void	ft_free_split(char **sentence)
 		i++;
 	}
 	free(sentence);
+	if (s)
+		ft_free_s(s, 1);
 }
 
 void	ft_free_s(t_stack *s, int fail)

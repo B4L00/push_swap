@@ -6,7 +6,7 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:24:01 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/26 16:13:14 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 08:33:38 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ int	ft_atoi(const char *nptr)
 
 int main()
 {
-	printf("ft_atoi : %d\n", ft_atoi("0003"));
-	printf("atoi : %d\n", atoi("0003"));
+	printf("ft_atoi : %d\n", ft_atoi("-0006"));
+	printf("atoi : %d\n", atoi("-0006"));
 	return (0);
 }
  */

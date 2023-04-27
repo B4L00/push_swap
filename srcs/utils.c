@@ -6,11 +6,31 @@
 /*   By: larmenou <larmenou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:07:02 by larmenou          #+#    #+#             */
-/*   Updated: 2023/04/26 16:37:35 by larmenou         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:41:34 by larmenou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	ft_check_digit(char *argv)
+{
+	int	j;
+
+	j = 0;
+	while ((argv[j]))
+	{
+		if (j == 0 && (argv[j] == '-' || argv[j] == '+'))
+			j++;
+		if (ft_isdigit(argv[j]))
+			j++;
+		else
+		{
+			ft_putstr_fd("Error\n", 1);
+			return (0);
+		}
+	}
+	return (1);
+}
 
 int	ft_check(int *a, char **argv, int len)
 {
@@ -22,11 +42,8 @@ int	ft_check(int *a, char **argv, int len)
 	while (i < len)
 	{
 		s = ft_itoa(a[i]);
-		if (!ft_strnstr(argv[i], s, ft_strlen(argv[i])))
-		{
-			free(s);
+		if (!ft_check_utils(s, argv, i))
 			return (0);
-		}
 		j = i + 1;
 		free(s);
 		while (j < len)
@@ -56,8 +73,6 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 
 	i = 0;
 	split = ft_split(argv[1], ' ');
-	s->a = NULL;
-	s->b = NULL;
 	if (!split)
 		exit(EXIT_FAILURE);
 	s->len_a = ft_lensplit(split);
@@ -67,16 +82,17 @@ void	main_argc2(t_stack *s, char **argv, char **split)
 		ft_free_s(s, 1);
 	while (i < s->len_a)
 	{
+		if (!ft_check_digit(split[i]))
+			ft_free_split(split, s);
 		s->a[i] = ft_atoi((const char *)split[i]);
 		i++;
 	}
 	if (!ft_check(s->a, split, s->len_a))
 	{	
 		ft_putstr_fd("Error\n", 1);
-		ft_free_split(split);
-		ft_free_s(s, 1);
+		ft_free_split(split, s);
 	}
-	ft_free_split(split);
+	ft_free_split(split, NULL);
 }
 
 void	main_suite(t_stack *s, char **argv, int argc)
@@ -91,6 +107,8 @@ void	main_suite(t_stack *s, char **argv, int argc)
 		ft_free_s(s, 1);
 	while (i < s->len_a)
 	{
+		if (!ft_check_digit(argv[i + 1]))
+			ft_free_s(s, 1);
 		s->a[i] = ft_atoi((const char *)argv[i + 1]);
 		s->b[i] = 0;
 		i++;
